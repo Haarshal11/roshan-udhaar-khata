@@ -796,7 +796,7 @@ with tab_khata:
             c3.metric("⏳ Net Pending", fmt_inr(net_pending))
 
             # ── WhatsApp button ──
-            if phone and phone.strip():
+            phone_str = str(phone).strip() if phone is not None else "" if phone_str.endswith(".0"):     phone_str = phone_str[:-2] if phone_str and phone_str.lower() != "nan":
                 cust_tx_wa = all_tx[all_tx["customer_name"] == selected_cust_khata]
                 wa_url = generate_whatsapp_url(phone, selected_cust_khata, net_pending, cust_tx_wa)
                 st.markdown(
